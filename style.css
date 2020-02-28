@@ -1,0 +1,66 @@
+body {
+    background-image: linear-gradient(to top, rgb(80, 125, 133), #3e4e63);
+}
+
+#top_h3 {
+    color: azure;
+    text-shadow: 5px 5px 5px rgb(150, 202, 185);
+}
+
+#footer_p {
+    text-align: center;
+    color: rgb(223, 209, 209);
+}
+
+#left {
+    width: 100px;
+    height: 1440px;
+    float: left;
+    background-color: rgb(154, 160, 170);
+    margin-right: 50px;
+}
+
+#header {
+    margin: 0;
+}
+
+#map {
+    height: 600px;
+    width: 700px;
+    background-color: rgb(241, 240, 227);
+    float: right;
+    margin-right: 30px;
+    margin-left: 20px;
+}
+
+#listBar {
+    margin-top: 50px;
+    height: 600px;
+    width: 600px;
+    color: rgb(227, 230, 203);
+    float: left;
+}
+
+#pieChart2 {
+    margin-left: 20px;
+    margin-top: 50px;
+    height: 600px;
+    width: 600px;
+    float: left;
+}
+
+#main {
+    width: 1500px;
+    height: fit-content;
+    float: left;
+    background-image: linear-gradient(to top, rgb(80, 125, 133), #3e4e63);
+}
+
+#dateAxis {
+    height: 10px;
+    width: 1000px;
+    background-color: rgba(255, 255, 240, 0.2);
+    float: left;
+    margin-top: 50px;
+    margin-left: 150px;
+}
