@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keyword" content="2019-nCov,新型冠状病毒,肺炎,武汉,疫情" />
+    <meta name="description" content="高级程序设计语言第一次大作业，学习JavaScript、CSS、HTML，实现疫情可视化" />
+    <meta name="author" content="hjx">
+    <!--<meta http-equiv="refresh" content="1"> 每隔1s刷新页面-->
+    <title>2019-nCov_data_visualization web made by hjx</title>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/echarts/map/js/china.js'></script>
+    <script type="text/javascript" src="..\script\script.js"></script>
+    <script type='text/javascript' src='..\script\China.js'></script>
+    <script type='text/javascript' src='..\script\data.js'></script>
+    <script type="module" src='../script/data.js'></script>
+    <link href="..\css\style.css" type="text/css" rel="Stylesheet" />
+    <script>
+        welcome();
+    </script>
+</head>
+
+<body>
+
+    <div id="header">
+        <!--标题-->
+        <p>
+            <img src="..\pictures/OIP.jpg" alt="冠状病毒" width="50px" height="30px" align="left" border="0">
+            <h3 id="top_h3">&nbsp;2019-nCov疫情可视化(全国)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i>中国加油，武汉加油！</i></h3>
+        </p>
+        <hr>
+    </div>
+
+
+    <!--返回顶部-->
+    <div id='gotoTop'><img src='..\pictures\gotoTop.png'></div>
+    <script>
+        gotoTop();
+    </script>
+
+    <!--跳到各省详细数据-->
+    <div id='goNext'><img src='..\pictures\goNext.png' onclick="goNext()"></div>
+
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div class="main">
+
+        <div id="left">
+            <br><br><br><br><br><br><br>
+            <p class='ins'>全</p>
+            <p class='ins'>国</p>
+            <p class='ins'>总</p>
+            <p class='ins'>观</p>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <p class='ins'>各</p>
+            <p class='ins'>省</p>
+            <p class='ins'>对</p>
+            <p class='ins'>比</p>
+        </div>
+
+        <div style='width: 598px;height: 600px;float: left;border: 1px solid lightblue;border-radius: 20px;'>
+            <div id="pieChart" class="chart" style="width: 595px;height:198px;float: left;font-size: smaller; font: outline;"></div>
+            <script>
+                pieChart();
+            </script>
+            <div id="lineChart" class="chart" style="width: 595px;height:398px;font-size: smaller; font: outline;"></div>
+            <script>
+                lineChart();
+            </script>
+
+        </div>
+
+        <div id="map"></div>
+        <script>
+            showMap();
+        </script>
+
+
+
+        <!--各省排名-->
+        <div id='listBar'></div>
+        <script>
+            showListBar();
+        </script>
+
+        <!--各省累计确诊所占比饼图-->
+        <div id='pieChart2'></div>
+        <script>
+            pieChart2();
+        </script>
+        <div id='dateAxis'></div>
+
+    </div>
+
+
+    <footer>
+        <p id="footer_p"><i><small>——————————&nbsp;&nbsp;中国加油，武汉加油&nbsp;&nbsp;——————————</small></i></p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+body {
+    background-image: linear-gradient(to top, rgb(80, 125, 133), rgb(62, 78, 99));
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+}
+
+#top_h3 {
+    color: azure;
+    text-shadow: 5px 5px 5px rgb(150, 202, 185);
+}
+
+#footer_p {
+    text-align: center;
+    color: rgb(223, 209, 209);
+}
+
+#left {
+    width: 100px;
+    height: 1440px;
+    float: left;
+    background-color: rgb(107, 119, 139);
+    margin-right: 50px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#header {
+    margin: 0;
+    border-radius: 20px;
+}
+
+#map {
+    height: 600px;
+    width: 700px;
+    float: left;
+    margin-left: 20px;
+    border: 1px solid lightblue;
+    border-radius: 20px;
+}
+
+#listBar {
+    margin-top: 50px;
+    height: 600px;
+    width: 598px;
+    color: rgb(227, 230, 203);
+    float: left;
+    border: 1px solid lightblue;
+    border-radius: 20px;
+}
+
+#pieChart2 {
+    margin-left: 20px;
+    margin-top: 50px;
+    height: 600px;
+    width: 700px;
+    float: left;
+    border: 1px solid lightblue;
+    border-radius: 20px;
+}
+
+.main {
+    width: 1500px;
+    height: fit-content;
+    float: left;
+    background-image: linear-gradient(to top, rgb(80, 125, 133), #3e4e63);
+}
+
+#dateAxis {
+    height: 10px;
+    width: 1000px;
+    background-color: rgba(255, 255, 240, 0.05);
+    float: left;
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+#gotoTop {
+    position: fixed;
+    right: 64px;
+    bottom: 50px;
+    display: none;
+}
+
+#goNext {
+    position: fixed;
+    right: 0px;
+    bottom: 50px;
+}
+
+#goBack {
+    position: fixed;
+    left: 0px;
+    bottom: 50px;
+}
+
+.ins {
+    font-weight: 500;
+    color: rgb(143, 167, 202);
+    text-shadow: 5px 5px lightblue;
+    font-family: sans-serif;
+}
+
+#pmap {
+    height: 520px;
+    width: 48%;
+    float: left;
+    background-color: lightcoral;
+    margin-left: 20px;
+    border-radius: 20px;
+}
+
+#pline {
+    height: 520px;
+    width: 48%;
+    float: left;
+    background-color: lightyellow;
+    margin-left: 40px;
+    border-radius: 20px;
+}
+
+#choose {
+    height: 100px;
+    width: 90%;
+    background-color: magenta;
+    float: left;
+    margin-left: 100px;
+    text-align: center;
+}
+
+button {
+    background-color: #008CBA;
+    border-radius: 10px;
+}

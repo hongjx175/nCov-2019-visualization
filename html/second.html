@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keyword" content="2019-nCov,新型冠状病毒,肺炎,武汉,疫情" />
+    <meta name="description" content="高级程序设计语言第一次大作业，学习JavaScript、CSS、HTML，实现疫情可视化" />
+    <meta name="author" content="hjx">
+    <!--<meta http-equiv="refresh" content="1"> 每隔1s刷新页面-->
+    <title>2019-nCov_data_visualization web made by hjx</title>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/echarts/map/js/china.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/shandong.js' id='mapsrc'></script>
+    <script src='../incubator-echarts-master/map/js/province/anhui.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/hubei.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/beijing.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/shanghai.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/tianjin.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/chongqing.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/xianggang.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/aomen.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/fujian.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/gansu.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/guangdong.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/guangxi.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/guizhou.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/hainan.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/hebei.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/henan.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/heilongjiang.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/hunan.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/jilin.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/jiangsu.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/jiangxi.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/liaoning.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/neimenggu.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/ningxia.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/qinghai.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/shanxi.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/shanxi1.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/sichuan.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/taiwan.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/xizang.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/xinjiang.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/yunnan.js'></script>
+    <script src='../incubator-echarts-master/map/js/province/zhejiang.js'></script>
+    <script type="text/javascript" src="..\script\script.js"></script>
+    <script type='text/javascript' src='..\script\province.js'></script>
+    <script type="module" src='..\script\data.js'></script>
+    <link href="..\css\style.css" type="text/css" rel="Stylesheet" />
+    <script src='../script/data.js'></script>
+
+</head>
+
+<body>
+
+    <div>
+        <img id='goBack' src='..\pictures\goBack.png' onclick="goBack()">
+    </div>
+    <div id="header">
+        <!--标题-->
+        <p>
+            <img src="..\pictures\OIP.jpg" alt="冠状病毒" width="50px" height="30px" align="left" border="0">
+            <h3 id="top_h3">
+                &nbsp;2019-nCov疫情可视化(各省)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <i>中国加油，武汉加油！</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span id='pName'>
+                   山东
+                </span>
+            </h3>
+        </p>
+        <hr>
+    </div>
+
+    <div class='main' style="height:100%;">
+        <!--省地图-->
+        <div id='pmap'>
+            <script>
+                showPmap('shandong');
+            </script>
+        </div>
+
+        <div id='pline'>
+        </div>
+
+        <div id='choose'>
+            <button onclick="showPmap('shandong')">山东</button>
+            <button onclick="showPmap('hubei')">湖北</button>
+            <button onclick="showPmap('beijing')">北京</button>
+            <button onclick="showPmap('shanghai')">上海</button>
+            <button onclick="showPmap('tianjin')">天津</button>
+            <button onclick="showPmap('chongqing')">重庆</button>
+            <button onclick="showPmap('xianggang')">香港</button>
+            <button onclick="showPmap('aomen')">澳门</button>
+            <button onclick="showPmap('anhui')">安徽</button>
+            <button onclick="showPmap('fujian')">福建</button>
+            <button onclick="showPmap('gansu')">甘肃</button>
+            <br>
+            <button onclick="showPmap('guangdong')">广东</button>
+            <button onclick="showPmap('guangxi')">广西</button>
+            <button onclick="showPmap('guizhou')">贵州</button>
+            <button onclick="showPmap('hainan')">海南</button>
+            <button onclick="showPmap('hebei')">河北</button>
+            <button onclick="showPmap('henan')">河南</button>
+            <button onclick="showPmap('heilongjiang')">黑龙江</button>
+            <button onclick="showPmap('hunan')">湖南</button>
+            <button onclick="showPmap('jilin')">吉林</button>
+            <button onclick="showPmap('jiangsu')">江苏</button>
+            <button onclick="showPmap('jiangxi')">江西</button>
+            <br>
+            <button onclick="showPmap('liaoning')">辽宁</button>
+            <button onclick="showPmap('neimenggu')">内蒙古</button>
+            <button onclick="showPmap('ningxia')">宁夏</button>
+            <button onclick="showPmap('qinghai')">青海</button>
+            <button onclick="showPmap('shanxi')">山西</button>
+            <button onclick="showPmap('shanxi1')">陕西</button>
+            <button onclick="showPmap('sichuan')">四川</button>
+            <button onclick="showPmap('taiwan')">台湾</button>
+            <button onclick="showPmap('xizang')">西藏</button>
+            <button onclick="showPmap('xinjiang')">新疆</button>
+            <button onclick="showPmap('yunnan')">云南</button>
+            <button onclick="showPmap('zhejiang')">浙江</button>
+
+        </div>
+    </div>
+
+    <footer>
+        <p id="footer_p"><i><small>——————————&nbsp;&nbsp;中国加油，武汉加油&nbsp;&nbsp;——————————</small></i></p>
+    </footer>
+
+</body>
+
+</html>
