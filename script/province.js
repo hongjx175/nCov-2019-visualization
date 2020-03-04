@@ -1,3 +1,15 @@
+window.onload  =   function()  {            
+    var  url  =  "../resource/province.json";           
+    var  request  =  new  XMLHttpRequest();            
+    request.open("get",  url);            
+    request.send(null);            
+    request.onload  =   function()  {                
+        if  (request.status  ==  200)  {                    
+            var  obj  =  JSON.parse(request.responseText);                    
+            console.log(obj);
+        }            
+    }        
+}
 var pListEN = ['shandong', 'hubei', 'beijing', 'shanghai', 'tianjin', 'chongqing', 'xianggang', 'aomen', 'anhui', 'fujian', 'gansu',
     'guangdong', 'guangxi', 'guizhou', 'hainan', 'hebei', 'henan', 'heilongjiang', 'hunan', 'jilin', 'jiangsu', 'jiangxi', 'liaoning',
     'neimenggu', 'ningxia', 'qinghai', 'shanxi', 'shanxi1', 'sichuan', 'taiwan', 'xizang', 'xinjiang', 'yunnan', 'zhejiang'

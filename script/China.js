@@ -1,3 +1,60 @@
+var pListEN = ['shandong', 'hubei', 'beijing', 'shanghai', 'tianjin', 'chongqing', 'xianggang', 'aomen', 'anhui', 'fujian', 'gansu',
+    'guangdong', 'guangxi', 'guizhou', 'hainan', 'hebei', 'henan', 'heilongjiang', 'hunan', 'jilin', 'jiangsu', 'jiangxi', 'liaoning',
+    'neimenggu', 'ningxia', 'qinghai', 'shanxi', 'shanxi1', 'sichuan', 'taiwan', 'xizang', 'xinjiang', 'yunnan', 'zhejiang'
+];
+var pListCN = ['山东', '湖北', '北京', '上海', '天津', '重庆', '香港', '澳门', '安徽', '福建', '甘肃', '广东', '广西', '贵州', '海南', '河北',
+    '河南', '黑龙江', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古', '宁夏', '青海', '山西', '陕西', '四川', '台湾', '西藏', '新疆', '云南', '浙江'
+];
+
+var dataArray;
+$.ajax({
+
+    url: "../resource/province.json", //json文件位置，文件名
+
+    type: "GET", //请求方式为get
+
+    dataType: "json", //返回数据格式为json
+
+    async: false,
+
+    success: function(data) { //请求成功完成后要执行的方法 
+        //给info赋值给定义好的变量
+        dataArray = data;
+        console.log(dataArray);
+    }
+
+})
+
+console.log(dataArray);
+
+
+var confirmedData = [];
+var suspectedData = [];
+var curedData = [];
+var deadData = [];
+
+
+function Data(name, value) {
+    this.name = name;
+    this.value = value;
+    console.log(value);
+}
+/*"provinceName": "湖北省",
+    "provinceShortName": "湖北",
+    "currentConfirmedCount": 25905,
+    "confirmedCount": 67332,
+    "suspectedCount": 0,
+    "curedCount": 38556,
+    "deadCount": 2871,*/
+
+for (var i = 0; i < dataArray.length; i++) {
+    confirmedData.push(new Data(dataArray[i].provinceShortName, dataArray[i].currentConfrimedCount));
+    suspectedData.push(new Data(dataArray[i].provinceShortName, dataArray[i].suspectedCount));
+    curedData.push(dataArray[i].provinceShortName, dataArray[i].curedCount);
+    deadData.push(dataArray[i].provinceShortName, dataArray[i].deadCount);
+}
+console.log(confirmedData);
+
 function showMap() {
     let myChart = echarts.init(document.getElementById('map'));
     let option = {
@@ -11,7 +68,13 @@ function showMap() {
         legend: {
             orient: 'vertical',
             left: 'left',
-            data: ['疑似', '确诊', '死亡', '治愈'],
+            //icon: 'circle',
+            data: [
+                '疑似',
+                '确诊',
+                '死亡',
+                '治愈',
+            ],
         },
         visualMap: {
             min: 0,
@@ -22,6 +85,7 @@ function showMap() {
             calculable: true,
             color: ['rgb(71,6,6)', 'red', 'pink', 'white']
         },
+
         series: [{
                 name: '疑似',
                 type: 'map',
@@ -35,42 +99,7 @@ function showMap() {
                         show: true
                     }
                 },
-                data: [
-                    { name: '北京', value: Math.round(Math.random() * 1000) },
-                    { name: '天津', value: Math.round(Math.random() * 1000) },
-                    { name: '上海', value: Math.round(Math.random() * 1000) },
-                    { name: '重庆', value: Math.round(Math.random() * 1000) },
-                    { name: '河北', value: Math.round(Math.random() * 1000) },
-                    { name: '河南', value: Math.round(Math.random() * 1000) },
-                    { name: '云南', value: Math.round(Math.random() * 1000) },
-                    { name: '辽宁', value: Math.round(Math.random() * 1000) },
-                    { name: '黑龙江', value: Math.round(Math.random() * 1000) },
-                    { name: '湖南', value: Math.round(Math.random() * 1000) },
-                    { name: '安徽', value: Math.round(Math.random() * 1000) },
-                    { name: '山东', value: Math.round(Math.random() * 1000) },
-                    { name: '新疆', value: Math.round(Math.random() * 1000) },
-                    { name: '江苏', value: Math.round(Math.random() * 1000) },
-                    { name: '浙江', value: Math.round(Math.random() * 1000) },
-                    { name: '江西', value: Math.round(Math.random() * 1000) },
-                    { name: '湖北', value: Math.round(Math.random() * 1000) },
-                    { name: '广西', value: Math.round(Math.random() * 1000) },
-                    { name: '甘肃', value: Math.round(Math.random() * 1000) },
-                    { name: '山西', value: Math.round(Math.random() * 1000) },
-                    { name: '内蒙古', value: Math.round(Math.random() * 1000) },
-                    { name: '陕西', value: Math.round(Math.random() * 1000) },
-                    { name: '吉林', value: Math.round(Math.random() * 1000) },
-                    { name: '福建', value: Math.round(Math.random() * 1000) },
-                    { name: '贵州', value: Math.round(Math.random() * 1000) },
-                    { name: '广东', value: Math.round(Math.random() * 1000) },
-                    { name: '青海', value: Math.round(Math.random() * 1000) },
-                    { name: '西藏', value: Math.round(Math.random() * 1000) },
-                    { name: '四川', value: Math.round(Math.random() * 1000) },
-                    { name: '宁夏', value: Math.round(Math.random() * 1000) },
-                    { name: '海南', value: Math.round(Math.random() * 1000) },
-                    { name: '台湾', value: Math.round(Math.random() * 1000) },
-                    { name: '香港', value: Math.round(Math.random() * 1000) },
-                    { name: '澳门', value: Math.round(Math.random() * 1000) }
-                ]
+                data: suspectedData,
             },
             {
                 name: '确诊',
@@ -84,27 +113,7 @@ function showMap() {
                         show: true
                     }
                 },
-                data: [
-                    { name: '北京', value: Math.round(Math.random() * 1000) },
-                    { name: '天津', value: Math.round(Math.random() * 1000) },
-                    { name: '上海', value: Math.round(Math.random() * 1000) },
-                    { name: '重庆', value: Math.round(Math.random() * 1000) },
-                    { name: '河北', value: Math.round(Math.random() * 1000) },
-                    { name: '安徽', value: Math.round(Math.random() * 1000) },
-                    { name: '新疆', value: Math.round(Math.random() * 1000) },
-                    { name: '浙江', value: Math.round(Math.random() * 1000) },
-                    { name: '江西', value: Math.round(Math.random() * 1000) },
-                    { name: '山西', value: Math.round(Math.random() * 1000) },
-                    { name: '内蒙古', value: Math.round(Math.random() * 1000) },
-                    { name: '吉林', value: Math.round(Math.random() * 1000) },
-                    { name: '福建', value: Math.round(Math.random() * 1000) },
-                    { name: '广东', value: Math.round(Math.random() * 1000) },
-                    { name: '西藏', value: Math.round(Math.random() * 1000) },
-                    { name: '四川', value: Math.round(Math.random() * 1000) },
-                    { name: '宁夏', value: Math.round(Math.random() * 1000) },
-                    { name: '香港', value: Math.round(Math.random() * 1000) },
-                    { name: '澳门', value: Math.round(Math.random() * 1000) }
-                ]
+                data: confirmedData,
             },
             {
                 name: '死亡',
@@ -118,15 +127,21 @@ function showMap() {
                         show: true
                     }
                 },
-                data: [
-                    { name: '北京', value: Math.round(Math.random() * 1000) },
-                    { name: '天津', value: Math.round(Math.random() * 1000) },
-                    { name: '上海', value: Math.round(Math.random() * 1000) },
-                    { name: '广东', value: Math.round(Math.random() * 1000) },
-                    { name: '台湾', value: Math.round(Math.random() * 1000) },
-                    { name: '香港', value: Math.round(Math.random() * 1000) },
-                    { name: '澳门', value: Math.round(Math.random() * 1000) }
-                ]
+                data: deadData,
+            },
+            {
+                name: '治愈',
+                type: 'map',
+                mapType: 'china',
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                data: curedData,
             }
         ]
     };

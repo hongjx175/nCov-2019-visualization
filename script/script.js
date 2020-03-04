@@ -45,7 +45,9 @@ function pieChart() {
             text: '全国疫情',
             subtext: "当前",
         },
-        tooltip: {},
+        tooltip: {
+            trigger: 'item'
+        },
         series: [{
             type: 'pie',
             data: pieData
