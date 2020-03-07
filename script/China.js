@@ -20,15 +20,15 @@ $.ajax({
     success: function(data) { //请求成功完成后要执行的方法 
         //给info赋值给定义好的变量
         dataArray = data;
-        console.log(dataArray);
+        //console.log(dataArray);
     }
 
 })
 
-console.log(dataArray);
+//console.log(dataArray);
 
 
-var confirmedData = [];
+var currentConfirmedData = [];
 var suspectedData = [];
 var curedData = [];
 var deadData = [];
@@ -37,32 +37,28 @@ var deadData = [];
 function Data(name, value) {
     this.name = name;
     this.value = value;
-    console.log(value);
+    //console.log(value);
 }
-/*"provinceName": "湖北省",
-    "provinceShortName": "湖北",
-    "currentConfirmedCount": 25905,
-    "confirmedCount": 67332,
-    "suspectedCount": 0,
-    "curedCount": 38556,
-    "deadCount": 2871,*/
+
 
 for (var i = 0; i < dataArray.length; i++) {
-    confirmedData.push(new Data(dataArray[i].provinceShortName, dataArray[i].currentConfrimedCount));
+    currentConfirmedData.push(new Data(dataArray[i].provinceShortName, dataArray[i].currentConfirmedCount));
+    //console.log(dataArray[i].currentConfirmedCount);
     suspectedData.push(new Data(dataArray[i].provinceShortName, dataArray[i].suspectedCount));
-    curedData.push(dataArray[i].provinceShortName, dataArray[i].curedCount);
-    deadData.push(dataArray[i].provinceShortName, dataArray[i].deadCount);
+    curedData.push(new Data(dataArray[i].provinceShortName, dataArray[i].curedCount));
+    deadData.push(new Data(dataArray[i].provinceShortName, dataArray[i].deadCount));
 }
-console.log(confirmedData);
 
 function showMap() {
     let myChart = echarts.init(document.getElementById('map'));
     let option = {
         title: {
-            text: '分布',
+            text: '当前分布',
+            subtext: '数据来自丁香园',
             left: 'center'
         },
         tooltip: {
+            show: true,
             trigger: 'item'
         },
         legend: {
@@ -70,50 +66,35 @@ function showMap() {
             left: 'left',
             //icon: 'circle',
             data: [
-                '疑似',
                 '确诊',
                 '死亡',
                 '治愈',
             ],
+            icon: 'circle'
         },
         visualMap: {
             min: 0,
-            max: 2500,
+            max: 2000,
             left: 'left',
             top: 'bottom',
             text: ['高', '低'], // 文本，默认为数值文本
             calculable: true,
-            color: ['rgb(71,6,6)', 'red', 'pink', 'white']
+            color: ['black', 'rgb(71,6,6)', 'red', 'pink', 'white'],
         },
 
         series: [{
-                name: '疑似',
-                type: 'map',
-                mapType: 'china',
-                roam: false,
-                label: {
-                    normal: {
-                        show: false
-                    },
-                    emphasis: {
-                        show: true
-                    }
-                },
-                data: suspectedData,
-            },
-            {
                 name: '确诊',
                 type: 'map',
                 mapType: 'china',
                 label: {
                     normal: {
-                        show: false
+                        show: true
                     },
                     emphasis: {
                         show: true
                     }
                 },
-                data: confirmedData,
+                data: currentConfirmedData,
             },
             {
                 name: '死亡',

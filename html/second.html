@@ -57,36 +57,38 @@
     <link href="..\css\style.css" type="text/css" rel="Stylesheet" />
 </head>
 
-<body>
+<body id='body2'>
 
     <div>
         <img id='goBack' src='..\pictures\goBack.png' onclick="goBack()">
     </div>
-    <div id="header">
-        <!--标题-->
-        <p>
-            <img src="..\pictures\OIP.jpg" alt="冠状病毒" width="50px" height="30px" align="left" border="0">
-            <h3 id="top_h3">
-                &nbsp;2019-nCov疫情可视化(各省)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                <i>中国加油，武汉加油！</i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span id='pName'>
-                   山东
-                </span>
-            </h3>
-        </p>
-        <hr>
+    <div id='header'>
+        <img src="..\pictures\OIP.jpg" alt="冠状病毒" style='width: 70px;height: 40px;text-align: left;float: left;margin-top: 17px;'>
+        <ul>
+            <li>
+                <a href='index.html'>
+                    <h3 id='top_h3'>2019-nCov疫情可视化</h3>
+                </a>
+
+            </li>
+            <li>
+                <a href='main.html'>
+                    <h3 id='top_h3'>全国</h3>
+                </a>
+            </li>
+            <li>
+                <a href='second.html'>
+                    <h3 id='top_h3'>各省</h3>
+                </a>
+            </li>
+        </ul>
+
     </div>
 
-    <div class='main' style="height:100%;">
-        <!--省地图-->
-        <div id='pmap'>
-            <script>
-                showPmap('shandong');
-            </script>
-        </div>
 
-        <div id='pline'>
-        </div>
+
+    <div class='main' style="height:100%;">
+
 
         <div id='choose'>
             <button onclick="showPmap('shandong')">山东</button>
@@ -100,21 +102,20 @@
             <button onclick="showPmap('anhui')">安徽</button>
             <button onclick="showPmap('fujian')">福建</button>
             <button onclick="showPmap('gansu')">甘肃</button>
-            <br>
+
             <button onclick="showPmap('guangdong')">广东</button>
             <button onclick="showPmap('guangxi')">广西</button>
             <button onclick="showPmap('guizhou')">贵州</button>
             <button onclick="showPmap('hainan')">海南</button>
             <button onclick="showPmap('hebei')">河北</button>
             <button onclick="showPmap('henan')">河南</button>
-            <button onclick="showPmap('heilongjiang')">黑龙江</button>
+
             <button onclick="showPmap('hunan')">湖南</button>
             <button onclick="showPmap('jilin')">吉林</button>
             <button onclick="showPmap('jiangsu')">江苏</button>
             <button onclick="showPmap('jiangxi')">江西</button>
-            <br>
+
             <button onclick="showPmap('liaoning')">辽宁</button>
-            <button onclick="showPmap('neimenggu')">内蒙古</button>
             <button onclick="showPmap('ningxia')">宁夏</button>
             <button onclick="showPmap('qinghai')">青海</button>
             <button onclick="showPmap('shanxi')">山西</button>
@@ -125,12 +126,24 @@
             <button onclick="showPmap('xinjiang')">新疆</button>
             <button onclick="showPmap('yunnan')">云南</button>
             <button onclick="showPmap('zhejiang')">浙江</button>
-
+            <button onclick="showPmap('neimenggu')">内蒙古</button>
+            <button onclick="showPmap('heilongjiang')">黑龙江</button>
         </div>
+
+        <!--省地图-->
+        <div id='pmap'></div>
+        <div id='ppie'></div>
+        <div class='pline' id='pline1'></div>
+        <div class='pline' id='pline2'></div>
+        <div class='pline' id='pline3'></div>
+        <div class='pline' id='pline4'></div>
+        <script>
+            showPmap('hubei');
+        </script>
     </div>
 
     <footer>
-        <p id="footer_p"><i><small>——————————&nbsp;&nbsp;中国加油，武汉加油&nbsp;&nbsp;——————————</small></i></p>
+        <p id="footer_p" style='font-family: myFontFamily;color:black'><i><small>——————————&nbsp;&nbsp;武汉加油，中国加油&nbsp;&nbsp;——————————</small></i></p>
     </footer>
 
 </body>

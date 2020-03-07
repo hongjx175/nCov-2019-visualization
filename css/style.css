@@ -1,13 +1,45 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    float: left;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    float: left;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
 body {
-    background-image: linear-gradient(to top, rgb(80, 125, 133), rgb(62, 78, 99));
+    background-color: rgb(235, 221, 204);
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
 }
 
 #top_h3 {
+    margin-left: 20px;
+    margin-right: 20px;
+    float: left;
     color: azure;
     text-shadow: 5px 5px 5px rgb(150, 202, 185);
+    font-family: myFontFamily;
 }
 
 #footer_p {
@@ -16,26 +48,31 @@ body {
 }
 
 #left {
-    width: 100px;
-    height: 1440px;
+    width: 70px;
+    height: 1990px;
     float: left;
     background-color: rgb(107, 119, 139);
-    margin-right: 50px;
+    margin-right: 70px;
     text-align: center;
-    border-radius: 20px;
 }
 
 #header {
     margin: 0;
-    border-radius: 20px;
+    height: auto;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: #111;
+    z-index: 999;
 }
 
 #map {
+    margin-top: 80px;
     height: 600px;
-    width: 700px;
+    width: 680px;
     float: left;
     margin-left: 20px;
-    border: 1px solid lightblue;
+    border: 1px solid rgb(75, 81, 95);
     border-radius: 20px;
 }
 
@@ -45,47 +82,49 @@ body {
     width: 598px;
     color: rgb(227, 230, 203);
     float: left;
-    border: 1px solid lightblue;
+    border: 1px solid rgb(75, 81, 95);
     border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+#timeline {
+    height: 600px;
+    width: 1300px;
+    margin-top: 50px;
+    border: 1px solid rgb(75, 81, 95);
+    border-radius: 20px;
+    float: left;
+    text-align: left;
 }
 
 #pieChart2 {
     margin-left: 20px;
     margin-top: 50px;
     height: 600px;
-    width: 700px;
+    width: 680px;
     float: left;
-    border: 1px solid lightblue;
+    border: 1px solid rgb(75, 81, 95);
     border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 .main {
     width: 1500px;
     height: fit-content;
     float: left;
-    background-image: linear-gradient(to top, rgb(80, 125, 133), #3e4e63);
-}
-
-#dateAxis {
-    height: 10px;
-    width: 1000px;
-    background-color: rgba(255, 255, 240, 0.05);
-    float: left;
-    margin-top: 50px;
-    margin-left: 150px;
 }
 
 #gotoTop {
     position: fixed;
-    right: 64px;
-    bottom: 50px;
+    right: 0px;
+    bottom: 90px;
     display: none;
 }
 
 #goNext {
     position: fixed;
     right: 0px;
-    bottom: 50px;
+    bottom: 30px;
 }
 
 #goBack {
@@ -102,33 +141,43 @@ body {
 }
 
 #pmap {
-    height: 520px;
-    width: 48%;
+    margin-top: 70px;
+    height: 410px;
+    width: 40%;
     float: left;
-    background-color: lightcoral;
-    margin-left: 20px;
+    border-radius: 20px;
+    margin-left: 80px;
+}
+
+.pline {
+    height: 200px;
+    width: 45%;
+    float: left;
+    margin-left: 52px;
     border-radius: 20px;
 }
 
-#pline {
-    height: 520px;
-    width: 48%;
+#ppie {
+    margin-top: 70px;
+    height: 410px;
+    width: 40%;
     float: left;
-    background-color: lightyellow;
-    margin-left: 40px;
-    border-radius: 20px;
 }
 
 #choose {
-    height: 100px;
-    width: 90%;
-    background-color: magenta;
+    margin-top: 70px;
+    height: 410px;
+    width: 8%;
     float: left;
-    margin-left: 100px;
     text-align: center;
 }
 
 button {
     background-color: #008CBA;
-    border-radius: 10px;
+    border-radius: 5px;
+}
+
+@font-face {
+    font-family: myFontFamily;
+    src: url('../resource/myFontFamily.ttf');
 }

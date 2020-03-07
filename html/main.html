@@ -13,6 +13,7 @@
     <script src='https://cdn.jsdelivr.net/npm/echarts/map/js/china.js'></script>
     <script type="text/javascript" src="..\script\script.js"></script>
     <script type='text/javascript' src='..\script\China.js'></script>
+    <script type='text/javascript' src='..\script\China1.js'></script>
 
     <!--
         <script type="module" src='../script/data.js'></script>
@@ -24,16 +25,31 @@
     </script>
 </head>
 
-<body>
+<body id='body1'>
 
-    <div id="header">
-        <!--标题-->
-        <p>
-            <img src="..\pictures\OIP.jpg" alt="冠状病毒" width="50px" height="30px" align="left" border="0">
-            <h3 id="top_h3">&nbsp;2019-nCov疫情可视化(全国)&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i>中国加油，武汉加油！</i></h3>
-        </p>
-        <hr>
+    <div id='header'>
+        <img src="..\pictures\OIP.jpg" alt="冠状病毒" style='width: 70px;height: 40px;text-align: left;float: left;margin-top: 17px;'>
+        <ul>
+            <li>
+                <a href='index.html'>
+                    <h3 id='top_h3'>2019-nCov疫情可视化</h3>
+                </a>
+
+            </li>
+            <li>
+                <a href='main.html'>
+                    <h3 id='top_h3'>全国</h3>
+                </a>
+            </li>
+            <li>
+                <a href='second.html'>
+                    <h3 id='top_h3'>各省</h3>
+                </a>
+            </li>
+        </ul>
+
     </div>
+
 
 
     <!--返回顶部-->
@@ -52,8 +68,13 @@
             <br><br><br><br><br><br><br>
             <p class='ins'>全</p>
             <p class='ins'>国</p>
-            <p class='ins'>总</p>
-            <p class='ins'>观</p>
+            <p class='ins'>当</p>
+            <p class='ins'>前</p>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <p class='ins'>全</p>
+            <p class='ins'>国</p>
+            <p class='ins'>历</p>
+            <p class='ins'>史</p>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <p class='ins'>各</p>
             <p class='ins'>省</p>
@@ -61,7 +82,7 @@
             <p class='ins'>比</p>
         </div>
 
-        <div style='width: 598px;height: 600px;float: left;border: 1px solid lightblue;border-radius: 20px;'>
+        <div style='width: 598px;height: 600px;float: left;border: 1px solid rgb(75, 81, 95);border-radius: 20px;margin-top: 80px;'>
             <div id="pieChart" class="chart" style="width: 595px;height:198px;float: left;font-size: smaller; font: outline;"></div>
             <script>
                 pieChart();
@@ -78,26 +99,27 @@
             showMap();
         </script>
 
-
+        <div id='timeline'></div>
+        <script>
+            showTimeline();
+        </script>
 
         <!--各省排名-->
         <div id='listBar'></div>
-        <script>
-            showListBar();
-        </script>
+
 
         <!--各省累计确诊所占比饼图-->
         <div id='pieChart2'></div>
         <script>
             pieChart2();
+            showListBar();
         </script>
-        <div id='dateAxis'></div>
 
     </div>
 
 
-    <footer>
-        <p id="footer_p"><i><small>——————————&nbsp;&nbsp;中国加油，武汉加油&nbsp;&nbsp;——————————</small></i></p>
+    <footer id='id_footer'>
+        <p id="footer_p" style='font-family: myFontFamily;color:black'><i><small>——————————&nbsp;&nbsp;武汉加油，中国加油&nbsp;&nbsp;——————————</small></i></p>
     </footer>
 
 </body>
